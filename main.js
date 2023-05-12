@@ -9,7 +9,7 @@ class Producto {
 }
 
 const libroUno = new Producto(1, "Cronicas Marcianas", 10000, "img/Cronicas-marcianas.jpg");
-const libroDos = new Producto(2, "Papillon", 8500, "./img/Papillon.jpg");
+const libroDos = new Producto(2, "Papillon", 8500, "img/Papillon.jpg");
 const libroTres = new Producto(3, "Harry Poter 2", 12000, "img/HarryPotter.jpg");
 const libroCuatro = new Producto(4, "Señor de la guerra Horus", 7500, "img/Horus.jpg");
 const libroCinco = new Producto(5, "Sherlock Holmes", 9000, "img/portada1.jpg");
@@ -40,15 +40,15 @@ const mostrarLibros = () => {
                             <div class="card-body">
                                 <h3>${libro.nombre}</h3>
                                 <p>${libro.precio}</p>
-                                <button class= "btn colorBoton" id= "boton ${libro.id}>Agregar al Carrito</button>
+                                <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
                             </div>
                         </div>`
         contenedorCompras.appendChild(card);
 
         const boton = document.getElementById(`boton ${libro.id}`);
-        boton.addEventListener("click", () => {
-            agregarAlCarrito(libro.id);
-        })
+        boton.addEventListener("click", () => agregarAlCarrito(libro.id));
+            
+        
 
     })
 }
