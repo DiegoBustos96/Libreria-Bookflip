@@ -1,4 +1,10 @@
+body{
+    background-color: #85bb65;
+}
+
+
 .imgProductos {
+    
     width: 150px;
     height: 150px;
     object-fit: contain;
@@ -8,15 +14,39 @@
 .card {
     display: flex;
     align-items: center;
-    margin: 0.5rem;
+    margin: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    --bs-card-bg: #208d5b;
+    --bs-card-spacer-x: 0;
 }
 
 .colorBoton {
-    color: white;
-    background-color: #85bb65;
+    border-color:rgba(51, 160, 154, 0.521);
+    color: rgb(0, 0, 0);
+    background-color: rgba(24, 245, 208, 0.445);
 }
 
 .colorBoton:hover {
-    background-color: green;
-    color: white;
+    background-color: rgba(0, 225, 255, 0.842);
+    color: rgb(0, 0, 0);
 }
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* p{
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+} */
+
+/* .titulo{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+} */

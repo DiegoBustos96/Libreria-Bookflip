@@ -5,6 +5,7 @@ class Producto {
         this.precio = precio;
         this.img = img;
         
+        
     }
 }
 
@@ -15,7 +16,7 @@ const libroCuatro = new Producto(4, "Señor de la guerra Horus", 7500, "img/Horu
 const libroCinco = new Producto(5, "Sherlock Holmes", 9000, "img/portada-1.jpg");
 const libroSeis = new Producto(6, "Las Aventuras de Sherlock Holmes", 9000, "img/portada-2.jpg");
 const libroSiete = new Producto(7, "Misterio en Escarlata", 9000, "img/portada-3.jpg");
-const libroOcho = new Producto(8, "La Fundación, Dan Abnett", 7000, "img/La-fundacion.jpg");
+const libroOcho = new Producto(8, "La Fundación", 7000, "img/La-fundacion.jpg");
 const libroNueve = new Producto(9, "Los Olvidados", 8000, "img/Los-olvidados.jpg");
 const libroDiez = new Producto(10, "La Santa", 9000, "img/La-santa.jpg");
 const libroOnce = new Producto(11, "El club de la pelea", 5000, "img/clubPelea.jpg");
@@ -29,7 +30,7 @@ if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
-const contenedorCompras = document.getElementById("contenedorCompras");
+const contenedorCompras = document.getElementById("contenedorLibros");
 
 const mostrarLibros = () => {
     libros.forEach(libro => {
@@ -38,7 +39,7 @@ const mostrarLibros = () => {
         card.innerHTML = `<div class="card">
                             <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
                             <div class="card-body">
-                                <h3>${libro.nombre}</h3>
+                                <h3 class="titulo">${libro.nombre}</h3>
                                 <p>${libro.precio}</p>
                                 <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
                             </div>
@@ -46,7 +47,9 @@ const mostrarLibros = () => {
         contenedorCompras.appendChild(card);
 
         const boton = document.getElementById(`boton ${libro.id}`);
-        boton.addEventListener("click", () => agregarAlCarrito(libro.id));
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(libro.id);
+        })
 
 
 
@@ -57,12 +60,9 @@ mostrarLibros();
 
 const agregarAlCarrito = (id) => {
     const productoComprado = carrito.find(libro => libro.id === id);
-    if (productoComprado) {
-        productoComprado.cantidad++;
-    } else {
-        const producto = libros.find(libro => libro.id === id);
-        carrito.push(libro);
-    }
+    const producto = libros.find(libro => libro.id === id);
+    carrito.push(producto);
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
     calcularTotal();
 }
@@ -70,7 +70,7 @@ const agregarAlCarrito = (id) => {
 const verCarrito = document.getElementById("verCompra");
 const contenedorLibros = document.getElementById("contenedorLibros");
 
-verCompra.addEventListener("click", () => {
+verCarrito.addEventListener("click", () => {
     mostrarCarrito();
 })
 
@@ -83,33 +83,48 @@ const mostrarCarrito = () => {
                             <div class="card">  
                                 <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
                                 <div class="card-body">
-                                    <h3>${libro.nombre}</h3>
+                                    <h3 class="titulo">${libro.nombre}</h3>
                                     <p>${libro.precio}</p>
-                                    <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
+                                    <button class= "btn colorBoton" id= "eliminar ${libro.id}">Eliminar del Carrito</button>
                                 </div>
                             </div>`
         contenedorLibros.appendChild(card);
-        const boton = document.getElementById(`eliminar ${libro.id}`);
-        boton.addEventListener("click", () => eliminarDeCarrito(libro.id));
+
+        const botonEliminar = document.getElementById(`eliminar ${libro.id}`);
+        botonEliminar.addEventListener("click", () => eliminarDeCarrito(libro.id));
 
     })
     calcularTotal();
 }
 
 const eliminarDeCarrito = (id) => {
-    const producto = carrito.find(libro => libro.id === id);
-    let indice = carrito.find(libro);
-    carrito.splice(indice,1);
-    mostrarCarrito();
+    const index= carrito.findIndex(libro => libro.id === id);
+    if (index != -1){
+        carrito.splice(index, 1);
+        mostrarCarrito();
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-const eliminarCompra = document.getElementById("eliminarCompra");
+const eliminarCompra = document.getElementById("eliminarCompras");
 eliminarCompra.addEventListener("click", () =>{
-    localStorage.removeItem("carrito");
-    localStorage.removeItem("total");
-    location.reload();
-    // eliminarTodoElCarrito();
+    eliminarTodoElCarrito();
 
 })
+
+const eliminarTodoElCarrito = ()=>{
+    carrito=[];
+    localStorage.clear();
+    mostrarCarrito();
+}
+
+const total = document.getElementById("total");
+
+const calcularTotal=()=>{
+    let totalCompra = 0;
+    carrito.forEach(libro => {
+        totalCompra += libro.precio;
+    })
+    total.innerHTML = `Total: $${totalCompra}`;
+}
