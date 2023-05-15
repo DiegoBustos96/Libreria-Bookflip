@@ -4,8 +4,8 @@ class Producto {
         this.nombre = nombre;
         this.precio = precio;
         this.img = img;
-        
-        
+
+
     }
 }
 
@@ -59,13 +59,21 @@ const mostrarLibros = () => {
 mostrarLibros();
 
 const agregarAlCarrito = (id) => {
-    const productoComprado = carrito.find(libro => libro.id === id);
-    const producto = libros.find(libro => libro.id === id);
-    carrito.push(producto);
+    const productoCompradoIndex = carrito.findIndex(libro => libro.id === id);
+    if (productoCompradoIndex === -1) {
+        const producto = libros.find(libro => libro.id === id);
+        carrito = [...carrito, producto];
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    calcularTotal();
+    }
+
+    const updateCarrito = () => {
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        calcularTotal();
+    }
+    updateCarrito();
 }
+
+
 
 const verCarrito = document.getElementById("verCompra");
 const contenedorLibros = document.getElementById("contenedorLibros");
@@ -73,6 +81,10 @@ const contenedorLibros = document.getElementById("contenedorLibros");
 verCarrito.addEventListener("click", () => {
     mostrarCarrito();
 })
+
+
+
+
 
 const mostrarCarrito = () => {
     contenedorLibros.innerHTML = "";
@@ -97,9 +109,11 @@ const mostrarCarrito = () => {
     calcularTotal();
 }
 
+
+
 const eliminarDeCarrito = (id) => {
-    const index= carrito.findIndex(libro => libro.id === id);
-    if (index != -1){
+    const index = carrito.findIndex(libro => libro.id === id);
+    if (index !== -1) {
         carrito.splice(index, 1);
         mostrarCarrito();
         localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -108,20 +122,21 @@ const eliminarDeCarrito = (id) => {
 }
 
 const eliminarCompra = document.getElementById("eliminarCompras");
-eliminarCompra.addEventListener("click", () =>{
+eliminarCompra.addEventListener("click", () => {
     eliminarTodoElCarrito();
 
 })
 
-const eliminarTodoElCarrito = ()=>{
-    carrito=[];
-    localStorage.clear();
-    mostrarCarrito();
+const eliminarTodoElCarrito = () => {
+    carrito = [];
+    localStorage.removeItem('carrito');
+    calcularTotal();
+
 }
 
 const total = document.getElementById("total");
 
-const calcularTotal=()=>{
+const calcularTotal = () => {
     let totalCompra = 0;
     carrito.forEach(libro => {
         totalCompra += libro.precio;
