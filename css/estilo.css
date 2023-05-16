@@ -1,10 +1,10 @@
-body{
+body {
     background-color: #85bb65;
 }
 
 
 .imgProductos {
-    
+
     width: 150px;
     height: 150px;
     object-fit: contain;
@@ -23,7 +23,7 @@ body{
 }
 
 .colorBoton {
-    border-color:rgba(51, 160, 154, 0.521);
+    border-color: rgba(51, 160, 154, 0.521);
     color: rgb(0, 0, 0);
     background-color: rgba(24, 245, 208, 0.445);
     font-weight: 500;
@@ -34,14 +34,14 @@ body{
     color: rgb(0, 0, 0);
 }
 
-button{
+button {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    
+
 }
 
-p{
+p {
     font-weight: 500;
     display: flex;
     justify-content: space-around;
@@ -61,3 +61,23 @@ p{
     color: #fff;
 }
 
+.carousel-inner {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+
+.carousel-caption {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+}
+
+.carousel-caption h1,
+.carousel-caption p {
+    margin: 0;
+}

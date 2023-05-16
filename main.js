@@ -41,7 +41,7 @@ const mostrarLibros = () => {
                             <img src="${libro.img}" class="card-img-top" alt="${libro.nombre}">
                             <div class="card-body">
                                 <h3 class="card-title">${libro.nombre}</h5>
-                                <p class="card-text">${libro.precio}</p>
+                                <p class="card-text">$${libro.precio}</p>
                                 <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
                             </div>  
                         </div>`
@@ -58,29 +58,6 @@ const mostrarLibros = () => {
 }
 
 
-// const mostrarLibros = () => {
-//     libros.forEach(libro => {
-//         const card = document.createElement("div");
-//         card.classList.add("col-lx-3", "col-md-6", "col-xs-12");
-//         card.innerHTML = `<div class="card">
-//                             <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
-//                             <div class="card-body">
-//                                 <h3 class="titulo">${libro.nombre}</h3>
-//                                 <p>${libro.precio}</p>
-//                                 <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
-//                             </div>
-//                         </div>`
-//         contenedorCompras.appendChild(card);
-
-//         const boton = document.getElementById(`boton ${libro.id}`);
-//         boton.addEventListener("click", () => {
-//             agregarAlCarrito(libro.id);
-//         })
-
-
-
-//     })
-// }
 
 mostrarLibros();
 
