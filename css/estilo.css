@@ -26,6 +26,7 @@ body{
     border-color:rgba(51, 160, 154, 0.521);
     color: rgb(0, 0, 0);
     background-color: rgba(24, 245, 208, 0.445);
+    font-weight: 500;
 }
 
 .colorBoton:hover {
@@ -37,11 +38,26 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
 }
 
 p{
     font-weight: 500;
     display: flex;
     justify-content: space-around;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.dark h1 {
+    color: yellow;
+}
+
+.dark .container {
+    background-color: #333;
+    color: #fff;
 }
 

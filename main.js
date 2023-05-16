@@ -32,17 +32,18 @@ if (localStorage.getItem("carrito")) {
 
 const contenedorCompras = document.getElementById("contenedorLibros");
 
+
 const mostrarLibros = () => {
     libros.forEach(libro => {
         const card = document.createElement("div");
-        card.classList.add("col-lx-3", "col-md-6", "col-xs-12");
-        card.innerHTML = `<div class="card">
-                            <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
+        card.classList.add("col-lg-4", "col-md-6", "col-sm-12");
+        card.innerHTML = `<div class="card" style="width: 15rem;">
+                            <img src="${libro.img}" class="card-img-top" alt="${libro.nombre}">
                             <div class="card-body">
-                                <h3 class="titulo">${libro.nombre}</h3>
-                                <p>${libro.precio}</p>
+                                <h3 class="card-title">${libro.nombre}</h5>
+                                <p class="card-text">${libro.precio}</p>
                                 <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
-                            </div>
+                            </div>  
                         </div>`
         contenedorCompras.appendChild(card);
 
@@ -55,6 +56,31 @@ const mostrarLibros = () => {
 
     })
 }
+
+
+// const mostrarLibros = () => {
+//     libros.forEach(libro => {
+//         const card = document.createElement("div");
+//         card.classList.add("col-lx-3", "col-md-6", "col-xs-12");
+//         card.innerHTML = `<div class="card">
+//                             <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
+//                             <div class="card-body">
+//                                 <h3 class="titulo">${libro.nombre}</h3>
+//                                 <p>${libro.precio}</p>
+//                                 <button class= "btn colorBoton" id= "boton ${libro.id}">Agregar al Carrito</button>
+//                             </div>
+//                         </div>`
+//         contenedorCompras.appendChild(card);
+
+//         const boton = document.getElementById(`boton ${libro.id}`);
+//         boton.addEventListener("click", () => {
+//             agregarAlCarrito(libro.id);
+//         })
+
+
+
+//     })
+// }
 
 mostrarLibros();
 
@@ -84,30 +110,34 @@ verCarrito.addEventListener("click", () => {
 
 
 
-
-
 const mostrarCarrito = () => {
-    contenedorLibros.innerHTML = "";
+
+    while (contenedorLibros.firstChild) {
+        contenedorLibros.removeChild(contenedorLibros.firstChild);
+    }
+
     carrito.forEach(libro => {
         const card = document.createElement("div");
         card.classList.add("col-xl-3", "col-md-6", "col-xs-12");
         card.innerHTML = `
-                            <div class="card">  
-                                <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
-                                <div class="card-body">
-                                    <h3 class="titulo">${libro.nombre}</h3>
-                                    <p>${libro.precio}</p>
-                                    <button class= "btn colorBoton" id= "eliminar ${libro.id}">Eliminar del Carrito</button>
-                                </div>
-                            </div>`
+            <div class="card">  
+                <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
+                <div class="card-body">
+                    <h3 class="titulo">${libro.nombre}</h3>
+                    <p>${libro.precio}</p>
+                    <button class="btn colorBoton" id="eliminar ${libro.id}">Eliminar del Carrito</button>
+                </div>
+            </div>`;
+
         contenedorLibros.appendChild(card);
 
         const botonEliminar = document.getElementById(`eliminar ${libro.id}`);
         botonEliminar.addEventListener("click", () => eliminarDeCarrito(libro.id));
+    });
 
-    })
     calcularTotal();
-}
+};
+
 
 
 
@@ -142,4 +172,41 @@ const calcularTotal = () => {
         totalCompra += libro.precio;
     })
     total.innerHTML = `Total: $${totalCompra}`;
+}
+// Redirigir a la página principal
+
+const verCarritoBtn = document.getElementById("verCompra");
+const contenedorBotonPrincipal = document.getElementById("contenedorBotonPrincipal");
+const verPrincipalBtn = document.getElementById("verPrincipal");
+
+verCarritoBtn.addEventListener("click", () => {
+    mostrarCarrito();
+    contenedorBotonPrincipal.style.display = "block";
+});
+
+verPrincipalBtn.addEventListener("click", () => {
+
+    window.location.href = "index.html";
+});
+
+
+
+//cambiar fondo
+const boton = document.getElementById("botonFondo");
+
+boton.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("modo", "dark");
+    } else {
+        localStorage.setItem("modo", "light");
+    }
+})
+
+const modo = localStorage.getItem("modo");
+
+if (modo === "dark") {
+    document.body.classList.add("dark");
+} else {
+    document.body.classList.remove("dark");
 }
