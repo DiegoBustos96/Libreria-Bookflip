@@ -187,3 +187,26 @@ if (modo === "dark") {
 } else {
     document.body.classList.remove("dark");
 }
+
+
+/*COMENTARIOS */
+const comentarios = document.getElementById("comentarios");
+const listadoComentarios = 'json/comentarios.json';
+comentarios.addEventListener('click', function(){
+    fetch ('json/comentarios.json')
+        .then(response => response.json())
+        .then(comentarios => {
+            comentarios.forEach(comentarios => {
+                comentarios.innerHTML+=`
+                                        <h2>Nombre: ${comentario.libro}</h2>
+                                        <h3>Comentario: ${comentario.usuario}</h3>
+                                        <p>${comentario.comentario}</p>
+                                        <p>${comentario.calificacion}</p>
+                                        <p>${comentario.id}</p>
+                `
+            })
+
+            
+        })
+        .catch(error => console.log(error));
+});
