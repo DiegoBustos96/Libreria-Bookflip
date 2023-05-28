@@ -1,88 +1,86 @@
-{
-    "comentarios": [
+[
       {
-        "id": 1,
+        
         "libro": "Cronicas Marcianas",
         "usuario": "EscribaSombras",
         "comentario":"Crónicas Marcianas es una obra maestra de la ciencia ficción. Ray Bradbury logra transportarte a un mundo fascinante lleno de misterio y exploración. Cada relato es cautivador y te hace reflexionar sobre la naturaleza humana. ¡Totalmente recomendado!",
         "calificacion": "10/10"
       },
       {
-        "id": 2,
+        
         "libro": "Papillon",
         "usuario": "AstroLuminoso",
         "comentario":  "Papillon es un libro extraordinario que narra la increíble historia de supervivencia de Henri Charrière. A través de sus vividas descripciones, te sumerges en los oscuros recovecos de la prisión y experimentas las emociones y la determinación del protagonista. Una lectura cautivadora que te mantendrá en vilo.",
         "calificacion": "9/10"
       },
       {
-        "id": 3,
+        
         "libro": "Harry Potter 2",
         "usuario": "WizardSeeker",
         "comentario": "La segunda entrega de Harry Potter, la cámara secreta, es otra emocionante aventura llena de magia y misterio. J.K. Rowling nos transporta nuevamente al mundo mágico con personajes entrañables y una trama llena de giros inesperados. Si te encantó el primer libro, este no te defraudará.",
         "calificacion": "8.5/10"
       },
       {
-        "id": 4,
+        
         "libro":"Señor de la guerra Horus",
         "usuario": "LectorTemporal",
         "comentario": "Señor de la guerra Horus es una epopeya de ciencia ficción que te sumerge en un universo vasto y complejo. Dan Abnett teje una historia épica de batallas interestelares, intrigas políticas y personajes poderosos. Una lectura imprescindible para los amantes del género.",
         "calificacion": "9.5/10"
       },
       {
-        "id": 5,
+        
         "libro": "Sherlock Holmes",
         "usuario": "DetectiveEnigma",
         "comentario": "Sherlock Holmes es un clásico del misterio que no pasa de moda. Arthur Conan Doyle nos presenta al genial detective Holmes y su fiel compañero Watson en una serie de intrigantes casos. La astucia y la lógica brillante de Holmes son fascinantes. ¡Una delicia para los amantes de los enigmas!",
         "calificacion": "8.5/10"
       },
       {
-        "id": 6,
+        
         "libro": "Las Aventuras de Sherlock Holmes",
         "usuario": "TomoDragón",
         "comentario":  "Las Aventuras de Sherlock Holmes es una recopilación de relatos que mantendrá tu mente alerta y tus deducciones en marcha. Cada historia es un desafío intelectual que te sumerge en la mente privilegiada de Holmes. Una lectura fascinante para los aficionados al misterio y la deducción.",
         "calificacion": "8/10"
       },
       {
-        "id": 7,
+        
         "libro": "Misterio en Escarlata",
         "usuario": "HechiceroEnigma",
         "comentario":"Misterio en Escarlata es una novela de misterio clásica que te mantendrá intrigado hasta la última página. Agatha Christie es una maestra del suspense y esta historia en particular teje una telaraña de sospechas y giros inesperados. ¡No podrás dejar de leer hasta descubrir al culpable!" ,
         "calificacion": "10/10"
       },
       {
-        "id": 8,
+        
         "libro": "La Fundación",
         "usuario": "SoñadorLunar",
         "comentario":  "La Fundación de Isaac Asimov es una obra maestra de la ciencia ficción. Me fascinó la visión de Asimov sobre el futuro y cómo la Fundación se convierte en una pieza clave para preservar el conocimiento en un universo en constante cambio. La trama es profunda y compleja, y los personajes son inolvidables. Un clásico imprescindible para los amantes del género.",
         "calificacion": "10/10"
       },
       {
-        "id": 9,
+        
         "libro": "Los Olvidados",
         "usuario": "JineteFénix",
         "comentario": "Los Olvidados es una novela que te sumerge en un mundo postapocalíptico lleno de acción y emociones intensas. Ana María Matute nos transporta a un escenario desolado donde los personajes luchan por sobrevivir y encontrar la esperanza en medio del caos. Una historia impactante que te mantendrá enganchado.",
         "calificacion": "8.5/10"
       },
       {
-        "id": 10,
+        
         "libro": "La Santa",
         "usuario": "SacredReader",
         "comentario": "La Santa es una novela fascinante que combina misterio, historia y aventura. Federico Andahazi nos lleva a través de la vida de una mujer extraordinaria y sus vínculos con el poder y la religión en la antigua Roma. Una narrativa cautivadora que te transportará a un mundo lleno de intrigas y secretos." ,
         "calificacion": "7/10"
       },
       {
-        "id": 11,
+       
         "libro": "El club de la pelea",
         "usuario": "SpellboundReader",
         "comentario": "El club de la pelea es una novela provocativa y llena de adrenalina. Chuck Palahniuk nos sumerge en un mundo oscuro y subversivo, explorando temas como la masculinidad, la alienación y el consumismo. Una lectura impactante y perturbadora que te hará cuestionar la sociedad en la que vivimos.",
         "calificacion": "6.5/10"
       },
       {
-        "id": 12,
+        
         "libro": "El Magos",
         "usuario": "ScribeGaláctico",
         "comentario": "El Magos es una emocionante continuación de la trilogía de Lev Grossman. En esta entrega, nos adentramos en un mundo mágico lleno de peligros y desafíos. Grossman combina la magia con elementos de la vida real, creando una historia envolvente llena de acción y personajes complejos. Un viaje fascinante para los amantes de la fantasía contemporánea.",
         "calificacion": "9/10"
       }
-    ]
-  }
+]

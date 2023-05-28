@@ -83,6 +83,7 @@ const contenedorLibros = document.getElementById("contenedorLibros");
 
 verCarrito.addEventListener("click", () => {
     mostrarCarrito();
+    window.scrollTo({ top: 0, behavior: "smooth"});
 })
 
 
@@ -95,14 +96,16 @@ const mostrarCarrito = () => {
 
     carrito.forEach(libro => {
         const card = document.createElement("div");
-        card.classList.add("col-xl-3", "col-md-6", "col-xs-12");
+        card.classList.add("col-lg-4", "col-md-6", "col-sm-12");
         card.innerHTML = `
             <div class="card">  
                 <img class="card-img-tom imgProductos" src="${libro.img}" alt="${libro.nombre}">
                 <div class="card-body">
                     <h3 class="titulo">${libro.nombre}</h3>
                     <p>${libro.precio}</p>
-                    <button class="btn colorBoton" id="eliminar ${libro.id}">Eliminar del Carrito</button>
+                    <button class="btn colorBoton" id="eliminar ${libro.id}">
+                        <i class="far fa-times-circle" alt="Eliminar del Carrito"></i>
+                    </button>
                 </div>
             </div>`;
 
@@ -190,23 +193,24 @@ if (modo === "dark") {
 
 
 /*COMENTARIOS */
-const comentarios = document.getElementById("comentarios");
-const listadoComentarios = 'json/comentarios.json';
-comentarios.addEventListener('click', function(){
-    fetch ('json/comentarios.json')
-        .then(response => response.json())
-        .then(comentarios => {
-            comentarios.forEach(comentarios => {
-                comentarios.innerHTML+=`
-                                        <h2>Nombre: ${comentario.libro}</h2>
-                                        <h3>Comentario: ${comentario.usuario}</h3>
-                                        <p>${comentario.comentario}</p>
-                                        <p>${comentario.calificacion}</p>
-                                        <p>${comentario.id}</p>
-                `
-            })
 
-            
+
+const comentarios = document.getElementById("comentarios");
+const listadoComentarios="json/comentarios.json";
+fetch(listadoComentarios)
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+        datos.forEach(comentario => {
+            comentarios.innerHTML+=`<form id="formulario">
+                                        <h3>Nombre: ${comentario.libro}</h2>
+                                        <h4>Usuario: ${comentario.usuario}</h3>
+                                            <p>Comentario: ${comentario.comentario}</p>
+                                            <p>Calificación: ${comentario.calificacion}</p>
+                                            <hr>
+                                    </form> 
+                                `
         })
-        .catch(error => console.log(error));
-});
+    })
+    .catch(error => console.log(error))
+
+
